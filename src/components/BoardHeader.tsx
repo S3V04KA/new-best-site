@@ -18,7 +18,7 @@ const BoardHeader: React.FC = () => {
           </div>
         </div>
         <img 
-          src="/images/board.jpg" 
+          src="/images/board_new.jpg" 
           alt=""
           className="absolute brightness-50 blur inset-0 -z-10 h-full w-full object-cover object-center"
         />
