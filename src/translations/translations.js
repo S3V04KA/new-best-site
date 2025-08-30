@@ -58,7 +58,7 @@ export const translations = {
     subscribe: "Подписаться",
     
     // Partners
-    partnersTitle: "ПАРТНЕРЫ",
+    partnersTitle: "НАМ ДОВЕРЯЮТ",
     
     // Board
     boardTitle: "BOARD",

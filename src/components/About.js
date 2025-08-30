@@ -123,7 +123,7 @@ const About = () => {
         <img 
           src="/images/board.jpg" 
           alt=""
-          className="absolute brightness-50 blur inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+          className="absolute brightness-50 blur inset-0 -z-10 h-full w-full object-center object-cover"
         />
       </div>
     </section>
