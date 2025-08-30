@@ -9,7 +9,7 @@ export interface BoardMember {
 }
 
 export interface SocialLink {
-  type: 'vk' | 'telegram' | 'github';
+  type: 'vk' | 'telegram' | 'github' | 'mail';
   url: string;
   icon: string;
 }

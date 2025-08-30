@@ -28,7 +28,7 @@ const BoardMemberCard: React.FC<BoardMemberCardProps> = ({ member }) => {
         </div>
 
         {/* Social Links */}
-        <ul className="flex justify-center mt-5 space-x-2 p-[1em]">
+        <ul className="flex justify-center mt-5 space-x-2 p-[1em] items-center">
           {member.social.map((social, index) => (
             <li key={index}>
               <SocialIcon type={social.type} url={social.url} />

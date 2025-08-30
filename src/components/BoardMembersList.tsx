@@ -18,7 +18,8 @@ const BoardMembersList: React.FC = () => {
       image: "/images/Nika.jpg",
       social: [
         { type: "vk", url: "https://vk.com/v.machleidt", icon: "vk" },
-        { type: "telegram", url: "https://t.me/v_sio", icon: "telegram" }
+        { type: "telegram", url: "https://t.me/v_sio", icon: "telegram" },
+        { type: "mail", url: "mailto:veronika.machleidt@gmail.com", icon: "mail"}
       ]
     },
     {
