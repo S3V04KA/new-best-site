@@ -64,7 +64,7 @@ const BoardMembersList: React.FC = () => {
       position: "VP4PR",
       role: t.vp4prRole,
       board: t.boardXXII,
-      image: "/images/Masha.jpg",
+      image: "/images/Masha_new.jpg",
       social: [
         { type: "vk", url: "https://vk.com/khalinamaria", icon: "vk" },
         { type: "telegram", url: "https://t.me/kostareeva", icon: "telegram" }
