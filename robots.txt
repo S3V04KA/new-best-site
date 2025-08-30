@@ -1,0 +1,2 @@
+User-agent: Yandex
+Sitemap: https://urfubest.ru/Sitemap_BEST.xml
