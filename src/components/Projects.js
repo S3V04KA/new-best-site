@@ -34,7 +34,6 @@ const Projects = () => {
       title: t.marketingHackathons,
       subtitle: "Марк Хак & Юрал",
       description: t.marketingHackathonsDesc,
-      link: "https://t.me/markhack_URAL",
       buttonColor: "before:bg-orange-600"
     },
     {
@@ -64,7 +63,7 @@ const Projects = () => {
       title: t.businessIntensive,
       subtitle: "Ural Create",
       description: t.businessIntensiveDesc,
-      link: "https://vk.com/moneyhackaton",
+      link: "https://vk.com/uralcreate",
       buttonColor: "before:bg-orange-600"
     }
   ];
@@ -104,6 +103,7 @@ const Projects = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{display: !project.link ? 'none' : 'flex'}}
                     className={`relative flex h-12 w-full mx-auto items-center justify-center px-5 ${project.buttonColor} before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max`}
                   >
                     <span className="relative text-base font-semibold text-white">{t.subscribe}</span>

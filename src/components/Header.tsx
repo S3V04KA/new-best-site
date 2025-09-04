@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, currentPage, setCurrentPage
             onClick={() => navigateToPage('home')}
             className="flex items-center space-x-2 text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors duration-300"
           >
-            <img src="/images/logo.svg" className="h-8 w-auto" alt="BEST Logo" />
+            <img src="/images/logo.svg" className="h-14 w-auto" alt="BEST Logo" />
           </button>
 
           {/* Mobile menu button */}
