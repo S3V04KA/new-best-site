@@ -52,10 +52,10 @@ const BoardMembersList: React.FC = () => {
       position: "VP4HR",
       role: t.vp4hrRole,
       board: t.boardXXII,
-      image: "/images/Ksysha.jpg",
+      image: "/images/AnnaHR.jpg",
       social: [
-        { type: "vk", url: "https://vk.com/uhadiblinaa", icon: "vk" },
-        { type: "telegram", url: "https://t.me/ksenomorff", icon: "telegram" },
+        { type: "vk", url: "https://vk.com/anyta1310", icon: "vk" },
+        { type: "telegram", url: "https://t.me/Annyttt", icon: "telegram" },
       ]
     },
     {

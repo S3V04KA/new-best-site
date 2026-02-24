@@ -76,7 +76,7 @@ export const translations = {
     treasurer: "Варвара Журавлева",
     treasurerRole: "Руководитель финансового отдела. Отвечает за финансы, гранты и логистику",
     
-    vp4hr: "Ксения Колдарова",
+    vp4hr: "Анна Тунаева",
     vp4hrRole: "Руководитель HR-отдела. Отвечает за человеческие ресурсы организации",
     
     vp4pr: "Мария Халина",
@@ -177,7 +177,7 @@ export const translations = {
     treasurer: "Varvara Zhuravleva",
     treasurerRole: "Financial department head. Responsible for finances, grants and logistics",
     
-    vp4hr: "Ksenia Koldarova",
+    vp4hr: "Anna Tunaeva",
     vp4hrRole: "HR department head. Responsible for human resources",
     
     vp4pr: "Maria Khalina",
