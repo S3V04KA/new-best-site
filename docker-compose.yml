@@ -14,12 +14,12 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.test-best-site.tls=true"
-      - "traefik.http.routers.test-best-site.tls.options=default"
-      - "traefik.http.routers.test-best-site.tls.certresolver=letsEncrypt"
-      - "traefik.http.routers.test-best-site.rule=Host(`urfubest.ru`) || Host(`www.urfubest.ru`)"
-      - "traefik.http.services.test-best-site.loadbalancer.server.port=80"
-      - "traefik.http.routers.test-best-site.entryPoints=http,https"
+      - "traefik.http.routers.best-site.entryPoints=https"
+      - "traefik.http.routers.best-site.tls=true"
+      - "traefik.http.routers.best-site.tls.options=default"
+      - "traefik.http.routers.best-site.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.best-site.rule=Host(`urfubest.ru`)"
+      - "traefik.http.services.best-site.loadbalancer.server.port=80"
       - "traefik.docker.network=traefik"
 
 networks:
