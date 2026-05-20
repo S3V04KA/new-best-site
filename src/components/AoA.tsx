@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Plus, Star } from 'lucide-react';
 import { Slideshow } from './SlideShow';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations/translations';
 
 // --- ИНТЕРФЕЙСЫ И ТИПЫ ДЛЯ TSX ---
 interface FaqItemProps {
@@ -20,6 +22,8 @@ interface TimelineCardProps {
 }
 
 export default function AoA(): React.JSX.Element {
+  const { language } = useLanguage();
+  const t = translations[language] as Record<string, string>;
   return (
     <div className="min-h-screen bg-[#f4f4f0] text-[#1c1c1c] font-sans antialiased selection:bg-yellow-300 overflow-x-hidden">
       {/* 2. ГЛАВНЫЙ ЭКРАН (HERO SECTION) */}
@@ -35,7 +39,7 @@ export default function AoA(): React.JSX.Element {
           </h1>
           <div className="bg-white border-4 border-black p-6 md:p-8 max-w-3xl my-6 shadow-[8px_8px_0px_rgba(28,28,28,1)]">
             <p className="text-lg md:text-2xl font-medium leading-relaxed">
-              Профильное трехдневное соревнование, где студенты-архитекторы, строители и дизайнеры в командах решают кейсы от компаний и слушают лекции от экспертов.
+              {t.aoa_heroDesc}
             </p>
           </div>
         </div>
@@ -58,7 +62,7 @@ export default function AoA(): React.JSX.Element {
         <div className="max-w-6xl mx-auto">
           
           <h2 className="text-4xl md:text-6xl font-black uppercase text-center mb-20 tracking-tight text-[#1c1c1c]">
-            Хронология Интенсивов
+            {t.aoa_timelineTitle}
           </h2>
 
           <div className="relative">
@@ -68,13 +72,13 @@ export default function AoA(): React.JSX.Element {
             {/* БЛОК 2023 ГОД */}
             <TimelineCard 
               year={2023}
-              badgeText="Первый Интенсив"
+              badgeText={t.aoa_2023_badge}
               badgeColor="bg-[#36bc87]"
-              title="Развитие городской среды"
-              description="С 24 по 29 апреля 2023 года состоялся первый образовательный интенсив “Art of Arch”, организованный при поддержке Атомстройкомплекса, Союза Архитекторов России, Молодежного Объединения Союза Архитекторов и международного центра Interstudy."
+              title={t.aoa_2023_title}
+              description={t.aoa_2023_desc}
               bulletPoints={[
-                "Программа включала лекции, воркшопы, тренинги по soft и hard skills.",
-                "Работа над реальным кейс-проектом: разработка концепции благоустройства парка «Химмаш» в Чкаловском районе Екатеринбурга."
+                t.aoa_2023_bullet1,
+                t.aoa_2023_bullet2
               ]}
               isReversed={false}
             />
@@ -82,14 +86,14 @@ export default function AoA(): React.JSX.Element {
             {/* БЛОК 2024 ГОД */}
             <TimelineCard 
               year={2024}
-              badgeText="Масштабирование"
+              badgeText={t.aoa_2024_badge}
               badgeColor="bg-[#0294df]"
-              title="Кейсы девелоперов"
-              description="11-13 апреля 2024 года состоялся второй образовательный интенсив “Art of Arch”, организованный при поддержке генерального партнера — девелоперской компании “Forum” и проектной организации “CUBE”."
+              title={t.aoa_2024_title}
+              description={t.aoa_2024_desc}
               bulletPoints={[
-                "Создание арт-объекта в ЖК Форма;",
-                "Благоустройство ЖК на Зоологической;",
-                "Офис продаж для ЖК на Зоологической."
+                t.aoa_2024_bullet1,
+                t.aoa_2024_bullet2,
+                t.aoa_2024_bullet3
               ]}
               isReversed={true}
             />
@@ -97,10 +101,10 @@ export default function AoA(): React.JSX.Element {
             {/* БЛОК 2025 ГОД */}
             <TimelineCard 
               year={2025}
-              badgeText="Новый формат"
+              badgeText={t.aoa_2025_badge}
               badgeColor="bg-[#f37c3a]"
-              title="Перспективы и диджитал"
-              description="Запуск обновленной менторской программы, интеграция передовых строительных AI-технологий и хакатон для междисциплинарных команд архитекторов со всей страны."
+              title={t.aoa_2025_title}
+              description={t.aoa_2025_desc}
               isReversed={false}
             />
 
@@ -113,27 +117,27 @@ export default function AoA(): React.JSX.Element {
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-12 justify-center md:justify-start">
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
-              Остались вопросы?
+              {t.aoa_faqTitle}
             </h2>
             <Star className="fill-yellow-400 text-black w-8 h-8 hidden md:block" />
           </div>
           
           <div className="space-y-5">
             <FaqItem 
-              question="Кто может стать участником хакатона?" 
-              answer="Студенты профильных направлений (архитектура, дизайн среды, урбанистика, ПГС), а также молодые специалисты и практикующие дизайнеры в возрасте от 18 до 35 лет."
+              question={t.aoa_faq1_q}
+              answer={t.aoa_faq1_a}
             />
             <FaqItem 
-              question="Нужно ли платить за участие в лекциях и воркшопах?" 
-              answer="Нет, участие в проекте полностью бесплатное для всех кандидатов, успешно прошедших предварительный конкурсный отбор портфолио."
+              question={t.aoa_faq2_q}
+              answer={t.aoa_faq2_a}
             />
             <FaqItem 
-              question="Как формируются проектные команды?" 
-              answer="Команды формируются организаторами на основе ваших навыков (hard/soft skills), указанных в анкете, чтобы обеспечить максимальный баланс компетенций: архитектор + строитель + визуализатор."
+              question={t.aoa_faq3_q}
+              answer={t.aoa_faq3_a}
             />
             <FaqItem 
-              question="Что я получу на выходе из интенсива?" 
-              answer="Реальный кейс в ваше портфолио, экспертную оценку от топовых девелоперов (Forum, Атомстройкомплекс), дипломы участников и ценные призы за победу в номинациях."
+              question={t.aoa_faq4_q}
+              answer={t.aoa_faq4_a}
             />
           </div>
         </div>

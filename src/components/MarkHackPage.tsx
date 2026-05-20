@@ -1,8 +1,12 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import { Slideshow } from "./SlideShow";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 
 export default function MarkHackPage(): React.JSX.Element {
+  const { language } = useLanguage();
+  const t = translations[language] as Record<string, string>;
   return (
     <div
       className="min-h-screen bg-[#f4f0e7] text-[#1c1c1c] font-sans selection:bg-[#fa6346] selection:text-white"
@@ -13,14 +17,12 @@ export default function MarkHackPage(): React.JSX.Element {
         <div className="relative z-10 max-w-2xl">
           {/* Декоративные элементы (синие штрихи, оранжевые плашки) можно расположить абсолютно */}
           <h1 className="text-6xl md:text-8xl font-black uppercase text-[#fa6346] leading-none mb-6">
-            Марк
+            {t.mark_heroTitle1}
             <br />
-            Хак
+            {t.mark_heroTitle2}
           </h1>
           <p className="text-xl md:text-2xl font-bold max-w-xl leading-snug mb-8">
-            Маркетинговый хакатон - <br />
-            Профильное трехдневное соревнование, где студенты-маркетологи в
-            командах решают кейсы от компаний и слушают лекции от экспертов.
+            {t.mark_heroDesc}
           </p>
         </div>
 
@@ -53,14 +55,10 @@ export default function MarkHackPage(): React.JSX.Element {
         <div className="max-w-7xl mx-auto px-8 w-full flex flex-col md:flex-row items-center gap-12 relative justify-between">
           <div className="md:w-1/2">
             <p className="text-xl md:text-2xl mb-6">
-              <strong>С 10 по 12 ноября 2023 года</strong> состоялся первый
-              Маркетинговый хакатон “Юрал”, организованный при поддержке
-              девелопера Forum
+              {t.mark_2023_intro}
             </p>
             <p className="text-lg text-gray-700">
-              Программа включала лекции, воркшопы, тренинги по soft и hard
-              skills, от спикеров и экспертов таких агентств, как Be Brand
-              People, Восход, 1984 и Callibri
+              {t.mark_2023_desc}
             </p>
             <p className="mt-16">
               <img src="/images/mark/2023_partners.png" />
@@ -86,9 +84,7 @@ export default function MarkHackPage(): React.JSX.Element {
         <div className="max-w-7xl mx-auto px-8 w-full flex flex-col md:flex-row items-center gap-12 justify-between">
           <div className="md:w-1/2">
             <p className="text-xl md:text-2xl mb-6">
-              <strong>19 - 21 апреля 2024 года</strong> состоялся второй
-              Маркетинговый хакатон “МаркХак”, организованный при поддержке
-              генерального партнера - девелоперской компании “Forum"
+              {t.mark_2024_intro}
             </p>
             {/* Блок с логотипами партнеров */}
             <div className="mt-16">
@@ -114,9 +110,7 @@ export default function MarkHackPage(): React.JSX.Element {
         <div className="max-w-7xl mx-auto px-8 w-full flex flex-col md:flex-row items-center gap-12 relative">
           <div className="md:w-1/2">
             <p className="text-xl md:text-2xl mb-8">
-              <strong>4 - 6 апреля 2025 года</strong> состоялся третий
-              Маркетинговый хакатон “МаркХак”, организованный при поддержке
-              партнёров
+              {t.mark_2025_intro}
             </p>
             <div className="mt-16">
               <img src="/images/mark/2025_partners.png" />
@@ -135,7 +129,7 @@ export default function MarkHackPage(): React.JSX.Element {
       <div className="w-full bg-[#fa6346] py-4 my-8">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-8xl font-black text-[#ffffff] tracking-tighter">
-            ВОПРОС/ОТВЕТ
+            {t.mark_faqTitle}
           </h2>
         </div>
       </div>
@@ -145,16 +139,16 @@ export default function MarkHackPage(): React.JSX.Element {
           <div className="absolute -right-20 top-0 w-32 h-32 border border-black rounded-full opacity-20"></div>
 
           <FAQItem
-            question="Можно ли участвовать, если нет команды?"
-            answer="Да, можно участвовать и без команды. Мы обязательно найдём тебе команду!"
+            question={t.mark_faq1_q}
+            answer={t.mark_faq1_a}
           />
           <FAQItem
-            question="Хочу стать участником вашего мероприятия! Что мне нужно сделать?"
-            answer="Дождаться анонса следующего мероприятия и зарегестрироваться на него. О анонсах вы можете узнать из социальных сетей указаных в нижней части сайта!"
+            question={t.mark_faq2_q}
+            answer={t.mark_faq2_a}
           />
           <FAQItem
-            question="Я представитель компании и хотел(а) бы стать вашим партнером"
-            answer="Вы можете обратиться по контактным данным в нижней части сайта! Будет рады обсудить ваши предложения!"
+            question={t.mark_faq3_q}
+            answer={t.mark_faq3_a}
           />
         </div>
       </section>
