@@ -11,7 +11,7 @@ const Hero: React.FC<HeroProps> = () => {
     <div className="flex h-screen flex-col items-center">
       <div className="frame lg:container m-auto px-12 md:px-12 lg:px-6 mb-0">
         <h1 className="from-stone-800 font-sans text-5xl md:text-9xl dark:text-white">
-          BEST
+          МОСТ
         </h1>
         <p className="text-center font-sans text-5xl md:text-5xl mb-2">
           {t.heroSubtitle}
@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = () => {
 
       <div className="container m-auto text-center px-6 md:px-12 lg:px-20 mt-2em">
         <a
-          href="https://vk.com/best_urfu"
+          href="https://vk.com/most_urfu"
           target="_blank"
           rel="noopener noreferrer"
           className="relative flex h-16 w-full mx-auto items-center justify-center px-8 before:absolute  before:inset-0 before:rounded-full before:bg-sky-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"

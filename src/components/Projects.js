@@ -1,8 +1,8 @@
-import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../translations/translations';
+import React from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 
-const Projects = () => {
+const Projects = ({ setCurrentPage }) => {
   const { language } = useLanguage();
   const t = translations[language];
 
@@ -15,7 +15,7 @@ const Projects = () => {
       subtitle: "Code-Runner",
       description: t.itHackathonsDesc,
       link: "https://vk.com/hackathon_urfu",
-      buttonColor: "before:bg-violet-900"
+      buttonColor: "before:bg-violet-900",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Projects = () => {
       subtitle: "Art of Arch",
       description: t.archEventsDesc,
       link: "https://vk.com/art_of_arch_urfu",
-      buttonColor: "before:bg-lime-600"
+      buttonColor: "before:bg-lime-600",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const Projects = () => {
       title: t.marketingHackathons,
       subtitle: "Марк Хак & Юрал",
       description: t.marketingHackathonsDesc,
-      buttonColor: "before:bg-orange-600"
+      buttonColor: "before:bg-orange-600",
     },
     {
       id: 4,
@@ -43,8 +43,8 @@ const Projects = () => {
       title: t.bestCourses,
       subtitle: "BEST Course 2020",
       description: t.bestCoursesDesc,
-      link: "https://vk.com/best_urfu",
-      buttonColor: "before:bg-violet-900"
+      link: "https://vk.com/most_urfu",
+      buttonColor: "before:bg-violet-900",
     },
     {
       id: 5,
@@ -54,7 +54,7 @@ const Projects = () => {
       subtitle: "Chatzilla",
       description: t.speakingClubDesc,
       link: "https://vk.com/chatzilla",
-      buttonColor: "before:bg-lime-600"
+      buttonColor: "before:bg-lime-600",
     },
     {
       id: 6,
@@ -64,8 +64,8 @@ const Projects = () => {
       subtitle: "Ural Create",
       description: t.businessIntensiveDesc,
       link: "https://vk.com/uralcreate",
-      buttonColor: "before:bg-orange-600"
-    }
+      buttonColor: "before:bg-orange-600",
+    },
   ];
 
   return (
@@ -79,7 +79,10 @@ const Projects = () => {
 
         <div className="grid gap-6 px-4 sm:px-0 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div key={project.id} className="group relative rounded-3xl space-y-6 overflow-hidden">
+            <div
+              key={project.id}
+              className="group relative rounded-3xl space-y-6 overflow-hidden"
+            >
               <img
                 className="mx-auto h-[26rem] w-full object-cover object-top transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 src={project.image}
@@ -88,10 +91,14 @@ const Projects = () => {
                 width="640"
                 height="805"
               />
-              <div className="absolute bottom-0 rounded-3xl inset-x-0 h-[18rem] mt-auto px-8 py-6 bg-zinc-800 dark:bg-white translate-y-[11rem] transition duration-300 ease-in-out group-hover:translate-y-0">
+              <div className="absolute bottom-0 inset-x-0 h-[22rem] mt-auto px-8 py-6 bg-zinc-800 dark:bg-white translate-y-[15rem] transition duration-300 ease-in-out group-hover:translate-y-0 z-10">
                 <div>
-                  <h4 className="text-xl font-semibold dark:text-zinc-700 text-white">{project.title}</h4>
-                  <span className="block text-sm text-zinc-500">{project.subtitle}</span>
+                  <h4 className="text-xl font-semibold dark:text-zinc-700 text-white">
+                    {project.title}
+                  </h4>
+                  <span className="block text-sm text-zinc-500">
+                    {project.subtitle}
+                  </span>
                 </div>
                 <div className="mt-5 mb-5">
                   <p className="text-zinc-800 group-hover:text-zinc-300 dark:text-zinc-300 dark:group-hover:text-zinc-600 transition duration-300 ease-in-out">
@@ -99,15 +106,37 @@ const Projects = () => {
                   </p>
                 </div>
                 <div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{display: !project.link ? 'none' : 'flex'}}
-                    className={`relative flex h-12 w-full mx-auto items-center justify-center px-5 ${project.buttonColor} before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max`}
-                  >
-                    <span className="relative text-base font-semibold text-white">{t.subscribe}</span>
-                  </a>
+                  {project.id === 2 ? (
+                    <button
+                      onClick={() => setCurrentPage("aoa")}
+                      className={`relative flex h-12 w-full mx-auto items-center justify-center px-5 ${project.buttonColor} before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max cursor-pointer`}
+                    >
+                      <span className="relative text-base font-semibold text-white">
+                        Подробнее
+                      </span>
+                    </button>
+                  ) : project.id === 3 ? (
+                    <button
+                      onClick={() => setCurrentPage("mark")}
+                      className={`relative flex h-12 w-full mx-auto items-center justify-center px-5 ${project.buttonColor} before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max cursor-pointer`}
+                    >
+                      <span className="relative text-base font-semibold text-white">
+                        Подробнее
+                      </span>
+                    </button>
+                  ) : (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: !project.link ? "none" : "flex" }}
+                      className={`relative flex h-12 w-full mx-auto items-center justify-center px-5 ${project.buttonColor} before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max`}
+                    >
+                      <span className="relative text-base font-semibold text-white">
+                        {t.subscribe}
+                      </span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

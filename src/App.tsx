@@ -7,8 +7,10 @@ import Projects from './components/Projects';
 import Partners from './components/Partners';
 import Footer from './components/Footer';
 import Board from './components/Board';
+import AoA from './components/AoA';
 import NotFound from './components/NotFound';
 import { LanguageProvider } from './contexts/LanguageContext';
+import MarkHackPage from './components/MarkHackPage';
 
 const App: React.FC<AppProps> = () => {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -16,7 +18,7 @@ const App: React.FC<AppProps> = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // Список валидных страниц
-  const validPages = ['home', 'board'];
+  const validPages = ['home', 'board', 'aoa', 'mark'];
 
   // Инициализация страницы на основе URL при загрузке
   useEffect(() => {
@@ -101,6 +103,10 @@ const App: React.FC<AppProps> = () => {
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'aoa':
+        return <AoA />;
+      case 'mark':
+        return <MarkHackPage />;
       case 'board':
         return <Board setCurrentPage={navigateToPage} />;
       case '404':
@@ -111,7 +117,7 @@ const App: React.FC<AppProps> = () => {
           <>
             <Hero />
             <About />
-            <Projects />
+            <Projects setCurrentPage={navigateToPage} />
             <Partners />
           </>
         );

@@ -7,7 +7,7 @@ export const translations = {
     board: "Управляющий состав",
     
     // Hero
-    heroTitle: "BEST",
+    heroTitle: "МОСТ",
     heroSubtitle: "это",
     student: "студенчество",
     development: "развитие",
@@ -15,8 +15,8 @@ export const translations = {
     vkButton: "Мы ВКонтакте",
     
     // About
-    aboutTitle: "BEST",
-    aboutDescription: "Board of European Students of Technology – это международная студенческая организация.",
+    aboutTitle: "МОСТ",
+    aboutDescription: "МОСТ УрФУ (Молодежная организация студентов-технологов) — часть международной организации, представленной в более чем 80 университетах Европы.",
     aboutDescription2: "Наша деятельность направлена на развитие студентов за счет реализации крупных образовательных проектов.",
     aboutDescription3: "Мы – про яркое студенчество, эмоции, коммьюнити и развитие.",
     participants: "Участников",
@@ -58,11 +58,11 @@ export const translations = {
     subscribe: "Подписаться",
     
     // Partners
-    partnersTitle: "НАМ ДОВЕРЯЮТ",
+    partnersTitle: "НАШИ ПАРТНЁРЫ",
     
     // Board
     boardTitle: "BOARD",
-    boardSubtitle: "Управляющий состав BEST Ekaterinburg UrFU",
+    boardSubtitle: "Управляющий состав МОСТ Екатеринбург УрФУ",
     boardXXII: "XXIII Board",
     nonBoardXXII: "XXIII Non-Board",
     
@@ -95,7 +95,7 @@ export const translations = {
     itCoordRole: "Руководитель IT-отдела. Отвечает за техническую работу организации",
     
     // Footer
-    copyright: "© 2025 Copyright: BEST Ekaterinburg UrFU",
+    copyright: "© 2025 Copyright: МОСТ Екатеринбург УрФУ",
 
     pageNotFound: "Страница не найдена",
     goHome: "Домой",
