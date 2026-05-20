@@ -91,7 +91,7 @@ const Projects = ({ setCurrentPage }) => {
                 width="640"
                 height="805"
               />
-              <div className="absolute bottom-0 inset-x-0 h-[22rem] mt-auto px-8 py-6 bg-zinc-800 dark:bg-white translate-y-[15rem] transition duration-300 ease-in-out group-hover:translate-y-0 z-10">
+              <div className="max-md:relative absolute bottom-0 inset-x-0 h-[22rem] max-md:h-auto px-8 py-6 bg-zinc-800 dark:bg-white md:translate-y-[15rem] transition duration-300 ease-in-out md:group-hover:translate-y-0 z-10" style={{marginTop: '0'}}>
                 <div>
                   <h4 className="text-xl font-semibold dark:text-zinc-700 text-white">
                     {project.title}
@@ -101,7 +101,7 @@ const Projects = ({ setCurrentPage }) => {
                   </span>
                 </div>
                 <div className="mt-5 mb-5">
-                  <p className="text-zinc-800 group-hover:text-zinc-300 dark:text-zinc-300 dark:group-hover:text-zinc-600 transition duration-300 ease-in-out">
+                  <p className="max-md:text-zinc-300 text-zinc-800 group-hover:text-zinc-300 dark:max-md:text-zinc-600 dark:text-zinc-300 dark:group-hover:text-zinc-600 transition duration-300 ease-in-out">
                     {project.description}
                   </p>
                 </div>

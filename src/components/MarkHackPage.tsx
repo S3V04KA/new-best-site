@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
+import { Slideshow } from "./SlideShow";
 
 export default function MarkHackPage(): React.JSX.Element {
   return (
@@ -31,9 +32,11 @@ export default function MarkHackPage(): React.JSX.Element {
         </div>
 
         {/* Темный блок под главным экраном (из макета) */}
-        <div className="mt-20 w-full h-80 bg-[#1c1c1c] rounded-lg relative overflow-hidden flex items-center justify-center">
+        <div className="mt-20 w-full bg-[#1c1c1c] rounded-lg relative overflow-hidden flex items-center justify-center" style={{height: '30em'}}>
           {/* Сюда вставляется белая карточка с видео/фото */}
-          <div className="w-2/3 h-4/5 bg-[#f4f0e7] rounded shadow-lg"></div>
+          <div className="w-2/3 h-4/5 bg-[#f4f0e7] rounded shadow-lg">
+          <Slideshow images={['/images/mark/1.jpg', '/images/mark/2.jpg', '/images/mark/3.jpg']} />
+          </div>
         </div>
       </section>
 

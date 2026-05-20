@@ -84,7 +84,7 @@ const About = () => {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-5xl md:text-7xl font-extralight tracking-tight text-white">BEST</h2>
+            <h2 className="text-5xl md:text-7xl font-extralight tracking-tight text-white">МОСТ</h2>
             <p className="mt-6 md:text-2xl text-1xl leading-8 text-gray-300">
               {t.aboutDescription + ' '}
               {t.aboutDescription2 + ' '}
