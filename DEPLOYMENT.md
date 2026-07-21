@@ -110,20 +110,22 @@ export const translations = {
 
 **Важно:** ключ должен существовать в обоих языковых блоках (`ru` и `en`) — если добавляете новый ключ, добавляйте сразу в оба, иначе на одном из языков будет пусто/undefined.
 
-### 3.2 Состав совета (страница `/board`)
+### 3.2 Состав совета (страница `/board/:boardId`)
 
 Файл: `src/app/board/board-members-list.component.ts`
 
-Два массива — `boardMembers` и `nonBoardMembers`. Каждый элемент:
+Страница поддерживает два борда — XXIV (`boardId = '24'`, текущий, дефолтный при заходе на `/board`) и XXIII (`boardId = '23'`, архивный). Переключение — через выпадающее меню в хедере (`header.component.ts`, кнопка "board"), которое роутит на `/board/24` или `/board/23`.
+
+Каждый борд — два массива в `board-members-list.component.ts`: `board23Members`/`board23NonBoardMembers` и `board24Members`/`board24NonBoardMembers`. В отличие от большинства других компонентов, здесь хранятся не готовые строки, а **ключи** для `translations.ts` (`nameKey`, `roleKey`, `boardKey`) — это нужно, чтобы карточки реагировали на переключение языка. Каждый элемент:
 
 ```ts
 {
   id: 1,
-  name: this.lang.t['president'],        // имя — берётся из translations.ts
-  position: 'President',                  // должность (техническая, не переводится)
-  role: this.lang.t['presidentRole'],     // описание роли — тоже из translations.ts
-  board: this.lang.t['boardXXII'],
-  image: '/images/Nika.jpg',              // фото — файл в public/images/
+  nameKey: 'president',        // ключ в translations.ts, а не готовое имя
+  position: 'President',        // должность (техническая, не переводится)
+  roleKey: 'presidentRole',     // ключ описания роли в translations.ts
+  boardKey: 'boardXXII',        // ключ подписи борда ('boardXXII' для XXIII, 'boardXXIV' для XXIV)
+  image: '/images/Nika.jpg',    // фото — файл в public/images/
   social: [
     { type: 'vk', url: 'https://vk.com/...', icon: 'vk' },
     { type: 'telegram', url: 'https://t.me/...', icon: 'telegram' },
@@ -131,12 +133,16 @@ export const translations = {
 }
 ```
 
-Чтобы поменять человека на позиции:
-1. Добавьте/замените фото в `public/images/` (см. 3.4).
+Резолвятся ключи не здесь, а в `board-member-card.component.ts` — он сам инжектит `LanguageService` и берёт текст через `lang.t[member.nameKey]` и т.п. на каждый рендер.
+
+Чтобы поменять человека на позиции (борд XXIII, с реальными людьми):
+1. Добавьте/замените фото в `public/images/` (см. 3.6).
 2. Поменяйте имя и роль в `translations.ts` (ключи `president`, `presidentRole` и т.п. — по одному на каждую позицию, для ru и en).
 3. Поменяйте `image` и `social` прямо в `board-members-list.component.ts`.
 
-Чтобы добавить/убрать человека — добавьте/удалите объект в массиве (не забудьте уникальный `id`).
+Чтобы добавить/убрать человека — добавьте/удалите объект в соответствующем массиве (не забудьте уникальный `id`).
+
+**Борд XXIV пока плейсхолдер:** роли и описания ролей те же, что у XXIII (те же `roleKey`), но `nameKey` у всех — `tbaName` ("Будет объявлено"/"To be announced"), а `image` — общий силуэт `public/images/placeholder-avatar.svg`, `social: []`. Когда состав XXIV станет известен, в `board24Members`/`board24NonBoardMembers` нужно проставить реальные `nameKey` (добавив новые ключи в `translations.ts`, как для XXIII), реальные фото и `social`.
 
 ### 3.3 Партнёры (страница `/`, блок "Наши партнёры")
 
