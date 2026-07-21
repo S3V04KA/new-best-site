@@ -164,7 +164,7 @@ export const translations = {
     presidentRole: "Local group leader",
     secretary: "Anna Okunkova",
     secretaryRole: "Deputy organization leader",
-    treasurer: "Varvara Zhuravleva",
+    treasurer: "Evgenia Khomutinnikova",
     treasurerRole: "Financial department head. Responsible for finances, grants and logistics",
     vp4hr: "Anna Tunaeva",
     vp4hrRole: "HR department head. Responsible for human resources",

@@ -6,9 +6,9 @@ interface Project {
   id: number;
   image: string;
   alt: string;
-  title: string;
-  subtitle: string;
-  description: string;
+  titleKey: string;
+  subtitleKey: string;
+  descriptionKey: string;
   link: string;
   buttonColor: string;
 }
@@ -32,12 +32,12 @@ interface Project {
                 [src]="project.image" [alt]="project.alt" loading="lazy" width="640" height="805" />
               <div class="max-md:relative absolute bottom-0 inset-x-0 h-[22rem] max-md:h-auto px-8 py-6 bg-zinc-800 dark:bg-white md:translate-y-[15rem] transition duration-300 ease-in-out md:group-hover:translate-y-0 z-10" style="margin-top: 0">
                 <div>
-                  <h4 class="text-xl font-semibold dark:text-zinc-700 text-white">{{ project.title }}</h4>
-                  <span class="block text-sm text-zinc-500">{{ project.subtitle }}</span>
+                  <h4 class="text-xl font-semibold dark:text-zinc-700 text-white">{{ lang.t[project.titleKey] }}</h4>
+                  <span class="block text-sm text-zinc-500">{{ lang.t[project.subtitleKey] }}</span>
                 </div>
                 <div class="mt-5 mb-5">
                   <p class="max-md:text-zinc-300 text-zinc-800 group-hover:text-zinc-300 dark:max-md:text-zinc-600 dark:text-zinc-300 dark:group-hover:text-zinc-600 transition duration-300 ease-in-out">
-                    {{ project.description }}
+                    {{ lang.t[project.descriptionKey] }}
                   </p>
                 </div>
                 <div>
@@ -71,12 +71,12 @@ export class ProjectsComponent {
   lang = inject(LanguageService);
 
   projects: Project[] = [
-    { id: 1, image: '/images/CodeRunner.jpg', alt: 'Code_Runner', title: this.lang.t['itHackathons'], subtitle: 'Code-Runner', description: this.lang.t['itHackathonsDesc'], link: 'https://vk.com/hackathon_urfu', buttonColor: 'before:bg-violet-900' },
-    { id: 2, image: '/images/ARTofARCH.jpg', alt: 'АОА', title: this.lang.t['archEvents'], subtitle: 'Art of Arch', description: this.lang.t['archEventsDesc'], link: '', buttonColor: 'before:bg-lime-600' },
-    { id: 3, image: '/images/MARKHACK.jpg', alt: 'ЮРАЛ', title: this.lang.t['marketingHackathons'], subtitle: 'Марк Хак & Юрал', description: this.lang.t['marketingHackathonsDesc'], link: '', buttonColor: 'before:bg-orange-600' },
-    { id: 4, image: '/images/Course.jpg', alt: 'курс 2020', title: this.lang.t['bestCourses'], subtitle: 'BEST Course 2020', description: this.lang.t['bestCoursesDesc'], link: 'https://vk.com/most_urfu', buttonColor: 'before:bg-violet-900' },
-    { id: 5, image: '/images/Chatzilla.jpg', alt: 'speaking club', title: this.lang.t['speakingClub'], subtitle: 'Chatzilla', description: this.lang.t['speakingClubDesc'], link: 'https://vk.com/chatzilla', buttonColor: 'before:bg-lime-600' },
-    { id: 6, image: '/images/Eco_Hack.jpg', alt: 'secret event', title: this.lang.t['businessIntensive'], subtitle: 'Ural Create', description: this.lang.t['businessIntensiveDesc'], link: 'https://vk.com/uralcreate', buttonColor: 'before:bg-orange-600' },
+    { id: 1, image: '/images/CodeRunner.jpg', alt: 'Code_Runner', titleKey: 'itHackathons', subtitleKey: 'codeRunner', descriptionKey: 'itHackathonsDesc', link: 'https://vk.com/hackathon_urfu', buttonColor: 'before:bg-violet-900' },
+    { id: 2, image: '/images/ARTofARCH.jpg', alt: 'АОА', titleKey: 'archEvents', subtitleKey: 'artOfArch', descriptionKey: 'archEventsDesc', link: '', buttonColor: 'before:bg-lime-600' },
+    { id: 3, image: '/images/MARKHACK.jpg', alt: 'ЮРАЛ', titleKey: 'marketingHackathons', subtitleKey: 'markHack', descriptionKey: 'marketingHackathonsDesc', link: '', buttonColor: 'before:bg-orange-600' },
+    { id: 4, image: '/images/Course.jpg', alt: 'курс 2020', titleKey: 'bestCourses', subtitleKey: 'bestCourse2020', descriptionKey: 'bestCoursesDesc', link: 'https://vk.com/most_urfu', buttonColor: 'before:bg-violet-900' },
+    { id: 5, image: '/images/Chatzilla.jpg', alt: 'speaking club', titleKey: 'speakingClub', subtitleKey: 'chatzilla', descriptionKey: 'speakingClubDesc', link: 'https://vk.com/chatzilla', buttonColor: 'before:bg-lime-600' },
+    { id: 6, image: '/images/Eco_Hack.jpg', alt: 'secret event', titleKey: 'businessIntensive', subtitleKey: 'uralCreate', descriptionKey: 'businessIntensiveDesc', link: 'https://vk.com/uralcreate', buttonColor: 'before:bg-orange-600' },
   ];
 
   navigateTo(page: string) {

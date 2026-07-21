@@ -1,9 +1,9 @@
 export interface BoardMember {
   id: number;
-  name: string;
+  nameKey: string;
   position: string;
-  role: string;
-  board: string;
+  roleKey: string;
+  boardKey: string;
   image: string;
   social: SocialLink[];
 }
