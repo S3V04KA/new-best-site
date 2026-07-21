@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,13 +8,13 @@ import { Component } from '@angular/core';
     <footer id="contacts" class="bg-[#1c1c1c] text-white p-12 md:p-20 border-t-4 border-black">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
         <div>
-          <div class="text-3xl font-black tracking-tighter mb-3 uppercase">МОСТ</div>
+          <div class="text-3xl font-black tracking-tighter mb-3 uppercase">{{ lang.t['footerBrand'] }}</div>
           <p class="text-sm text-gray-400 max-w-sm">
-            Молодежная организация студентов-технологов
+            {{ lang.t['footerDescription'] }}
           </p>
         </div>
         <div class="flex flex-col gap-3 font-bold">
-          <span class="text-xs uppercase text-gray-500 tracking-widest">Контакты для связи</span>
+          <span class="text-xs uppercase text-gray-500 tracking-widest">{{ lang.t['footerContactsLabel'] }}</span>
           <div class="flex gap-6 text-sm">
             <a href="https://t.me/+c-2Jv_ESv-Y1MjQ6" type="button" target="_blank" rel="noopener noreferrer"
               class="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900">
@@ -45,11 +46,13 @@ import { Component } from '@angular/core';
         </div>
       </div>
       <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-800 text-xs text-gray-500 flex justify-between">
-        <span>© {{ currentYear }} Copyright: МОСТ Ekaterinburg UrFU</span>
+        <span>© {{ currentYear }} {{ lang.t['footerCopyright'] }}</span>
       </div>
     </footer>
   `
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+
+  constructor(public lang: LanguageService) {}
 }

@@ -42,10 +42,12 @@ npm test           # тесты
 Production-сборка запускается через Docker:
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
-Nginx раздаёт статику из `dist/best-site/browser`, SPA-роутинг настроен через `try_files`. Трафик идёт через Traefik с Let's Encrypt.
+`--build` обязателен после любых изменений в `src/`, `public/`, `package.json` — без него Docker переиспользует старый закэшированный образ.
+
+Nginx раздаёт статику из `dist/best-site/browser`, SPA-роутинг настроен через `try_files`. Трафик идёт через Traefik с Let's Encrypt. Подробности деплоя, редактирования контента и локальной разработки — в `DEPLOYMENT.md`.
 
 ---
 

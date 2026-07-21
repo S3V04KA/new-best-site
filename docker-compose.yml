@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.best-site.tls=true"
       - "traefik.http.routers.best-site.tls.options=default"
       - "traefik.http.routers.best-site.tls.certresolver=letsEncrypt"
-      - "traefik.http.routers.best-site.rule=Host(`urfubest.ru`)"
+      - "traefik.http.routers.best-site.rule=Host(`best.pukeko.online`)"
       - "traefik.http.services.best-site.loadbalancer.server.port=80"
       - "traefik.docker.network=traefik"
 

@@ -20,7 +20,7 @@ import { LanguageService } from '../services/language.service';
 
         <div class="mx-auto max-w-7xl">
           <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-5xl md:text-7xl font-extralight tracking-tight text-white">МОСТ</h2>
+            <h2 class="text-5xl md:text-7xl font-extralight tracking-tight text-white">{{ lang.t['aboutTitle'] }}</h2>
             <p class="mt-6 md:text-2xl text-1xl leading-8 text-gray-300">
               {{ lang.t['aboutDescription'] + ' ' + lang.t['aboutDescription2'] + ' ' + lang.t['aboutDescription3'] }}
             </p>

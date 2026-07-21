@@ -8,7 +8,7 @@ import { LanguageService } from '../services/language.service';
     <div class="flex h-screen flex-col items-center">
       <div class="frame lg:container m-auto px-12 md:px-12 lg:px-6 mb-0">
         <h1 class="from-stone-800 font-sans text-5xl md:text-9xl dark:text-white">
-          МОСТ
+          {{ lang.t['heroTitle'] }}
         </h1>
         <p class="text-center font-sans text-5xl md:text-5xl mb-2">
           {{ lang.t['heroSubtitle'] }}
