@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -35,7 +35,22 @@ import { LanguageService } from '../services/language.service';
               <li><button (click)="navigateToSection('About_US')" class="text-gray-800 hover:text-gray-600 transition-colors duration-300">{{ lang.t['about'] }}</button></li>
               <li><button (click)="navigateToSection('OUR_MEROS')" class="text-gray-800 hover:text-gray-600 transition-colors duration-300">{{ lang.t['projects'] }}</button></li>
               <li><button (click)="navigateToSection('OUR_PARTNERS')" class="text-gray-800 hover:text-gray-600 transition-colors duration-300">{{ lang.t['partners'] }}</button></li>
-              <li><button (click)="navigateToPage('board')" class="text-gray-800 hover:text-gray-600 transition-colors duration-300">{{ lang.t['board'] }}</button></li>
+              <li class="relative">
+                <button (click)="isBoardMenuOpen = !isBoardMenuOpen"
+                  class="flex items-center gap-1 text-gray-800 hover:text-gray-600 transition-colors duration-300"
+                  [attr.aria-expanded]="isBoardMenuOpen">
+                  {{ lang.t['board'] }}
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                @if (isBoardMenuOpen) {
+                  <ul class="absolute top-full left-0 mt-2 min-w-[10rem] rounded-lg bg-white py-2 shadow-lg z-50">
+                    <li><button (click)="navigateToBoard('24')" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">{{ lang.t['boardXXIV'] }}</button></li>
+                    <li><button (click)="navigateToBoard('23')" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">{{ lang.t['boardXXII'] }}</button></li>
+                  </ul>
+                }
+              </li>
               <li>
                 <button (click)="lang.toggleLanguage()" class="block font-sans md:px-5 hover:opacity-80 transition-opacity duration-300"
                   [attr.aria-label]="lang.isRussian ? 'Switch to English' : 'Переключиться на русский'">
@@ -53,7 +68,21 @@ import { LanguageService } from '../services/language.service';
               <li><button (click)="navigateToSection('About_US')" class="text-left w-full bg-transparent border-none p-0">{{ lang.t['about'] }}</button></li>
               <li><button (click)="navigateToSection('OUR_MEROS')" class="text-left w-full bg-transparent border-none p-0">{{ lang.t['projects'] }}</button></li>
               <li><button (click)="navigateToSection('OUR_PARTNERS')" class="text-left w-full bg-transparent border-none p-0">{{ lang.t['partners'] }}</button></li>
-              <li><button (click)="navigateToPage('board')" class="text-left w-full bg-transparent border-none p-0">{{ lang.t['board'] }}</button></li>
+              <li>
+                <button (click)="isBoardMenuOpen = !isBoardMenuOpen" class="flex w-full items-center justify-between bg-transparent border-none p-0 text-left"
+                  [attr.aria-expanded]="isBoardMenuOpen">
+                  {{ lang.t['board'] }}
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                @if (isBoardMenuOpen) {
+                  <ul class="mt-3 space-y-3 pl-4">
+                    <li><button (click)="navigateToBoard('24')" class="text-left w-full bg-transparent border-none p-0 text-gray-600">{{ lang.t['boardXXIV'] }}</button></li>
+                    <li><button (click)="navigateToBoard('23')" class="text-left w-full bg-transparent border-none p-0 text-gray-600">{{ lang.t['boardXXII'] }}</button></li>
+                  </ul>
+                }
+              </li>
               <li>
                 <button (click)="lang.toggleLanguage()" class="block font-sans md:px-5 hover:opacity-80 transition-opacity duration-300"
                   [attr.aria-label]="lang.isRussian ? 'Switch to English' : 'Переключиться на русский'">
@@ -70,11 +99,13 @@ import { LanguageService } from '../services/language.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isMobileMenuOpen = false;
+  isBoardMenuOpen = false;
   currentRoute = '';
   private destroy$ = new Subject<void>();
 
   constructor(
     private router: Router,
+    private elementRef: ElementRef,
     public lang: LanguageService
   ) {}
 
@@ -92,14 +123,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.isBoardMenuOpen && !this.elementRef.nativeElement.contains(event.target)) {
+      this.isBoardMenuOpen = false;
+    }
+  }
+
   navigateToHome() {
     this.router.navigate(['/']);
     this.isMobileMenuOpen = false;
+    this.isBoardMenuOpen = false;
   }
 
-  navigateToPage(page: string) {
-    this.router.navigate([`/${page}`]);
+  navigateToBoard(boardId: string) {
+    this.router.navigate(['/board', boardId]);
     this.isMobileMenuOpen = false;
+    this.isBoardMenuOpen = false;
   }
 
   navigateToSection(sectionId: string) {
@@ -115,5 +155,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
     this.isMobileMenuOpen = false;
+    this.isBoardMenuOpen = false;
   }
 }
