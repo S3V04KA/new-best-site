@@ -12,15 +12,19 @@ import { BoardMemberCardComponent } from './board-member-card.component';
       style="background: linear-gradient(179deg, #E2EAFDFF 0%, #073AFF00 97%)">
       <div class="min-h-screen py-8 lg:w-[60%]">
         <p class="text-center text-4xl font-semibold py-4">{{ lang.t['boardXXIV'] }}</p>
-        <div class="p-4 gap-4 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 select-none">
+        <div class="p-4 gap-4 flex flex-wrap justify-center select-none">
           @for (member of boardMembers; track member.id) {
-            <app-board-member-card [member]="member" />
+            <div class="w-full lg:w-[calc(33.3333%-0.6667rem)]">
+              <app-board-member-card [member]="member" />
+            </div>
           }
         </div>
         <p class="text-center text-4xl font-semibold py-4">{{ lang.t['nonBoardXXIV'] }}</p>
-        <div class="p-4 gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 select-none">
+        <div class="p-4 gap-4 flex flex-wrap justify-center select-none">
           @for (member of nonBoardMembers; track member.id) {
-            <app-board-member-card [member]="member" />
+            <div class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.3333%-0.6667rem)]">
+              <app-board-member-card [member]="member" />
+            </div>
           }
         </div>
       </div>
