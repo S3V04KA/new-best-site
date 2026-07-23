@@ -41,12 +41,12 @@ export class BoardMembersListComponent {
     { id: 3, nameKey: 'treasurer', position: 'Treasurer', roleKey: 'treasurerRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     { id: 4, nameKey: 'vp4hr', position: 'VP4HR', roleKey: 'vp4hrRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     { id: 5, nameKey: 'vp4pr', position: 'VP4PR', roleKey: 'vp4prRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
-    { id: 6, nameKey: 'vp4cr', position: 'VP4CR', roleKey: 'vp4crRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
+    // { id: 6, nameKey: 'vp4cr', position: 'VP4CR', roleKey: 'vp4crRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
   ];
 
   nonBoardMembers: BoardMember[] = [
     { id: 7, nameKey: 'iiCoord', position: 'II Coordinator', roleKey: 'iiCoordRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
-    { id: 8, nameKey: 'projCoord', position: 'Project Coordinator', roleKey: 'projCoordRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
+    // { id: 8, nameKey: 'projCoord', position: 'Project Coordinator', roleKey: 'projCoordRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     { id: 9, nameKey: 'itCoord', position: 'IT Coordinator', roleKey: 'itCoordRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
   ];
 }
