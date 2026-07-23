@@ -85,7 +85,7 @@ export class AoaFaqComponent {
 
         <div class="relative z-10 p-6 md:p-16 max-w-7xl mx-auto w-full">
           <h1 class="text-5xl md:text-9xl font-black tracking-tighter text-white uppercase drop-shadow-[6px_6px_0px_rgba(28,28,28,1)] mb-4">
-            ART OF ARCH
+            Искусство архитектуры
           </h1>
           <div class="bg-white border-4 border-black p-6 md:p-8 max-w-3xl my-6 shadow-[8px_8px_0px_rgba(28,28,28,1)]">
             <p class="text-lg md:text-2xl font-medium leading-relaxed">{{ lang.t['aoa_heroDesc'] }}</p>
