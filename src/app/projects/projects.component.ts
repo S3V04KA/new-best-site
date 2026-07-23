@@ -71,12 +71,12 @@ export class ProjectsComponent {
   lang = inject(LanguageService);
 
   projects: Project[] = [
-    { id: 1, image: '/images/CodeRunner.jpg', alt: 'Code_Runner', titleKey: 'itHackathons', subtitleKey: 'codeRunner', descriptionKey: 'itHackathonsDesc', link: 'https://vk.com/hackathon_urfu', buttonColor: 'before:bg-violet-900' },
+    { id: 1, image: '/images/CodeRunner.jpg', alt: 'Enigma-Hack', titleKey: 'itHackathons', subtitleKey: 'codeRunner', descriptionKey: 'itHackathonsDesc', link: 'https://vk.com/hackathon_urfu', buttonColor: 'before:bg-violet-900' },
     { id: 2, image: '/images/ARTofARCH.jpg', alt: 'АОА', titleKey: 'archEvents', subtitleKey: 'artOfArch', descriptionKey: 'archEventsDesc', link: '', buttonColor: 'before:bg-lime-600' },
     { id: 3, image: '/images/MARKHACK.jpg', alt: 'ЮРАЛ', titleKey: 'marketingHackathons', subtitleKey: 'markHack', descriptionKey: 'marketingHackathonsDesc', link: '', buttonColor: 'before:bg-orange-600' },
     { id: 4, image: '/images/Course.jpg', alt: 'курс 2020', titleKey: 'bestCourses', subtitleKey: 'bestCourse2020', descriptionKey: 'bestCoursesDesc', link: 'https://vk.com/most_urfu', buttonColor: 'before:bg-violet-900' },
     { id: 5, image: '/images/Chatzilla.jpg', alt: 'speaking club', titleKey: 'speakingClub', subtitleKey: 'chatzilla', descriptionKey: 'speakingClubDesc', link: 'https://vk.com/chatzilla', buttonColor: 'before:bg-lime-600' },
-    { id: 6, image: '/images/Eco_Hack.jpg', alt: 'secret event', titleKey: 'businessIntensive', subtitleKey: 'uralCreate', descriptionKey: 'businessIntensiveDesc', link: 'https://vk.com/uralcreate', buttonColor: 'before:bg-orange-600' },
+    { id: 6, image: '/images/Eco_Hack.jpg', alt: 'DRIP', titleKey: 'businessIntensive', subtitleKey: 'uralCreate', descriptionKey: 'businessIntensiveDesc', link: 'https://t.me/DRIPekb', buttonColor: 'before:bg-orange-600' },
   ];
 
   navigateTo(page: string) {
