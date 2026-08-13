@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository overview
 
-Official site of BEST Ekaterinburg UrFU (urfubest.ru / best.pukeko.online) — an Angular 21 standalone-components SPA with no backend/CMS. All content (text, member lists, project cards) lives directly in the source; images live in `public/images/`. The project was rewritten from a Create React App codebase to Angular; `INSTALL.md` and `NAVIGATION.md` at the repo root describe the old React version and are stale — don't follow them.
+Official site of BEST Ekaterinburg UrFU (urfubest.ru / best.home.pukeko.fans) — an Angular 21 standalone-components SPA with no backend/CMS. All content (text, member lists, project cards) lives directly in the source; images live in `public/images/`. The project was rewritten from a Create React App codebase to Angular; `INSTALL.md` and `NAVIGATION.md` at the repo root describe the old React version and are stale — don't follow them.
 
 ## Commands
 
@@ -24,8 +24,8 @@ Full details in `DEPLOYMENT.md` (Russian). Summary:
 
 - Production is a multi-stage `Dockerfile`: `node:22-alpine` runs `npm run build`, then the static output is copied into `nginx:alpine` and served via `nginx.conf` (SPA fallback to `index.html`, 1y cache on static assets, no-cache on HTML).
 - `docker compose up -d --build` from this directory builds and (re)starts the container — `--build` is required after any change to `src/`, `public/`, or `package.json`, otherwise Docker reuses the cached image.
-- The container joins the external `traefik` docker network (shared reverse proxy owned by another user on the host — don't touch its config) and is routed via Traefik labels in `docker-compose.yml` to `best.pukeko.online` with Let's Encrypt TLS. There's no root-level orchestration; this directory is deployed standalone.
-- Verify a deploy with `docker logs best-ekaterinburg-app --tail 100` and `curl -s -o /dev/null -w "%{http_code}\n" https://best.pukeko.online/` (expect `200`).
+- The container joins the external `traefik` docker network (shared reverse proxy owned by another user on the host — don't touch its config) and is routed via Traefik labels in `docker-compose.yml` to `best.home.pukeko.fans` with Let's Encrypt TLS. There's no root-level orchestration; this directory is deployed standalone.
+- Verify a deploy with `docker logs best-ekaterinburg-app --tail 100` and `curl -s -o /dev/null -w "%{http_code}\n" https://best.home.pukeko.fans/` (expect `200`).
 
 ## Architecture
 

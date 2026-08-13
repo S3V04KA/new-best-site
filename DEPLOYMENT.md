@@ -1,4 +1,4 @@
-# Деплой и редактирование контента — best.pukeko.online
+# Деплой и редактирование контента — best.home.pukeko.fans
 
 Этот файл описывает, как устроен деплой сайта BEST Екатеринбург УрФУ и как менять контент. Дополняет `README.md` (там — общее описание проекта и стек).
 
@@ -6,7 +6,7 @@
 
 ```
 Интернет ──▶ Traefik (core-modules-proxy-1, порты 80/443)
-                 │  Host(`best.pukeko.online`) + TLS (Let's Encrypt)
+                 │  Host(`best.home.pukeko.fans`) + TLS (Let's Encrypt)
                  ▼
            best-ekaterinburg-app (nginx:alpine, порт 80 внутри контейнера)
                  │  раздаёт статику из /usr/share/nginx/html
@@ -40,7 +40,7 @@
      - "traefik.http.routers.best-site.tls=true"
      - "traefik.http.routers.best-site.tls.options=default"
      - "traefik.http.routers.best-site.tls.certresolver=letsEncrypt"
-     - "traefik.http.routers.best-site.rule=Host(`best.pukeko.online`)"
+     - "traefik.http.routers.best-site.rule=Host(`best.home.pukeko.fans`)"
      - "traefik.http.services.best-site.loadbalancer.server.port=80"
      - "traefik.docker.network=traefik"
    ```
@@ -49,7 +49,7 @@ Traefik сам обнаруживает контейнер по этим лей�
 
 ### DNS
 
-`best.pukeko.online` — A-запись, управляется в панели регистратора (reg.ru, NS: `ns1.reg.ru` / `ns2.reg.ru`), указывает на IP сервера `188.226.68.130`. Если понадобится завести ещё один поддомен — добавляется точно так же там же.
+`best.home.pukeko.fans` — A-запись, управляется в панели регистратора (reg.ru, NS: `ns1.reg.ru` / `ns2.reg.ru`), указывает на IP сервера `188.226.68.130`. Если понадобится завести ещё один поддомен — добавляется точно так же там же.
 
 ## 2. Как поднять / перезапустить / обновить сайт
 
@@ -72,7 +72,7 @@ docker compose down
 
 ```bash
 docker compose up -d --build
-curl -s -o /dev/null -w "%{http_code}\n" https://best.pukeko.online/
+curl -s -o /dev/null -w "%{http_code}\n" https://best.home.pukeko.fans/
 ```
 
 Должно быть `200`. Если нет — смотрите `docker logs best-ekaterinburg-app`.
@@ -185,7 +185,7 @@ export const translations = {
 
 1. Отредактировать нужный файл (`translations.ts` для текста, `public/images/...` для картинок, конкретный `*.component.ts` для структуры/ссылок).
 2. `cd new-best-site && docker compose up -d --build`
-3. Проверить `https://best.pukeko.online/` в браузере (Ctrl+F5, чтобы сбросить кэш — nginx отдаёт HTML с `no-cache`, но статику `js/css/картинки` кэширует на год через `expires 1y`, так что после смены картинки с тем же именем файла может понадобиться жёсткий рефреш).
+3. Проверить `https://best.home.pukeko.fans/` в браузере (Ctrl+F5, чтобы сбросить кэш — nginx отдаёт HTML с `no-cache`, но статику `js/css/картинки` кэширует на год через `expires 1y`, так что после смены картинки с тем же именем файла может понадобиться жёсткий рефреш).
 
 ## 5. Локальная разработка (без Docker)
 
