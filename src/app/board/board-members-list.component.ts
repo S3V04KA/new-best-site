@@ -45,6 +45,7 @@ export class BoardMembersListComponent {
     { id: 3, nameKey: 'treasurer', position: 'Treasurer', roleKey: 'treasurerRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     { id: 4, nameKey: 'vp4hr', position: 'VP4HR', roleKey: 'vp4hrRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     { id: 5, nameKey: 'vp4pr', position: 'VP4PR', roleKey: 'vp4prRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
+	{ id: 6, nameKey: 'projCoord', position: 'Project Coordinator', roleKey: 'projCoordRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
     // { id: 6, nameKey: 'vp4cr', position: 'VP4CR', roleKey: 'vp4crRole', boardKey: 'boardXXIV', image: '/images/placeholder-avatar.svg', social: this.placeholderSocial },
   ];
 
